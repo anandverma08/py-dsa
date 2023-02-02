@@ -18,7 +18,8 @@ def first_position(nums, value):
 def last_position(nums, value):
     def condition(mid):
         if(nums[mid]==value):
-            if(mid>0 and nums[mid+1]==value):
+            print(mid)
+            if(mid < len(nums)-1 and nums[mid+1]==value):
                 return "right"
             else:
                 return "found"
@@ -43,5 +44,5 @@ def binary_search(nums,low,high, condition):
             low = mid+1
     return -1
 
-arr = [1,1,1,1,1,1,1,2,2,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4]
-print(last_position(arr, 3))
+arr = [2,2]
+print([first_position(arr, 2),last_position(arr,2)])
