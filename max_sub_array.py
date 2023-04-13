@@ -10,7 +10,7 @@ def find_max_sum(arr):
     for i in range(0,len(arr)):
 
         sum = sum + arr[i]
-        print(sum,arr[i])
+        print("sum",sum,arr[i])
         if arr[i] >= max_value:
             initial = i
             print("initial",initial)
@@ -19,12 +19,12 @@ def find_max_sum(arr):
 
             max_value = sum
             print("final", final, max_value)
-        if(sum<0):
-            sum = 0
+        # if(sum<0):
+        #     sum = 0
 
     print(initial,final)
     return arr[initial:final]
 
 
-print(find_max_sum([20,-30,40,10]))
+print(find_max_sum([10,-10]))
 
