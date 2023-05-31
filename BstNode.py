@@ -104,6 +104,17 @@ class BSTNode:
         if key > root.key:
             return BSTNode.find(root.right, key)
 
+    def diameterOfBinaryTree(root) -> int:
+        if root is None:
+            return 0
+        elif root.left is None and root.right is None:
+            return 1
+        elif root.left is not None and root.right is not None:
+            return 1 + BSTNode.diameterOfBinaryTree( root.left) + BSTNode.diameterOfBinaryTree( root.right)
+        elif root.left is None:
+            return BSTNode.diameterOfBinaryTree( root.right)
+        elif root.left is None:
+            return BSTNode.diameterOfBinaryTree( root.left)
     def update(node, key, value):
         target = BSTNode.find(node, key)
         if target is not None:
@@ -126,6 +137,7 @@ BSTNode.insert(tree, anand.username, anand)
 # print(n.username)
 
 print(BSTNode.depthFirstSearch(tree))
-# BSTNode.preorder(tree)
+print(BSTNode.diameterOfBinaryTree(tree))
+BSTNode.preorder(tree)
 
 
