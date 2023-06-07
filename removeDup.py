@@ -1,9 +1,6 @@
-def removeDup(arr):
-    res = []
-    for i in range(0,len(arr)):
-        if not arr[i] in res:
-            res.append(arr[i])
-
-    return res
-
+def removeDup(nums):
+    flag = False
+    k = 0
+    nums = list(set(nums))
+    return nums
 print(removeDup([1,1,2]))

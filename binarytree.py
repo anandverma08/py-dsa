@@ -43,7 +43,15 @@ class TreeNode:
         max_key = max(self.remove_none([max_l, root.key, max_r]))
         return is_bst_node, min_key, max_key
 
+    def is_balanced(self,root):
+        if root is None:
+            return True, 0
 
+        balanced_l, height_l =  self.is_balanced(root.left)
+        balanced_r, height_r = self.is_balanced(root.right)
+        balanced = balanced_l and balanced_r and abs(balanced_r-balanced_l)<=1
+        height = 1 + max(height_r,height_l)
+        return balanced, height
 
 tree_tuple = (("Aakash","Biraj","Hemanth"),"Jadhesh",("Siddhath","Sonaksh","Vishal"))
 
@@ -61,7 +69,8 @@ def parse_tuple(data):
 
 
 tree = parse_tuple(tree_tuple)
-print(tree.is_bst(tree))
+print(tree.is_balanced(tree))
+
 
 # tree.inorder()
 
